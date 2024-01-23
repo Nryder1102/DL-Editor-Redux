@@ -1,0 +1,15 @@
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\x64\Debug\net6.0-windows\Editor.exe
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\x64\Debug\net6.0-windows\Editor.deps.json
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\x64\Debug\net6.0-windows\Editor.runtimeconfig.json
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\x64\Debug\net6.0-windows\Editor.dll
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\x64\Debug\net6.0-windows\Editor.pdb
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.csproj.AssemblyReference.cache
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.AssemblyInfoInputs.cache
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.AssemblyInfo.cs
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.csproj.CoreCompileInputs.cache
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.dll
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\refint\Editor.dll
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.pdb
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\Editor.genruntimeconfig.cache
+C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\x64\Debug\net6.0-windows\ref\Editor.dll
