@@ -1,4 +1,6 @@
-﻿namespace Editor;
+﻿using Editor.GUI;
+
+namespace Editor;
 
 partial class Base
 {
@@ -32,24 +34,24 @@ partial class Base
         bottomPanel = new Panel();
         topPanel = new Panel();
         settingsPanel = new Panel();
-        settingsButton = new Button();
+        settingsButton = new NoFocusCueButton();
         loadPanel = new Panel();
-        loadButton = new Button();
+        loadButton = new NoFocusCueButton();
         savePanel = new Panel();
-        saveButton = new Button();
+        saveButton = new NoFocusCueButton();
         sidePanel = new Panel();
-        mainListButton = new Button();
+        mainListButton = new NoFocusCueButton();
         listPanel = new Panel();
-        talismanButton = new Button();
-        dragonButton = new Button();
-        charaButton = new Button();
+        talismanButton = new NoFocusCueButton();
+        dragonButton = new NoFocusCueButton();
+        charaButton = new NoFocusCueButton();
         detailPanel = new Panel();
         saveMenuStrip = new ContextMenuStrip(components);
         saveToFolderMenuItem = new ToolStripMenuItem();
         saveToMasterMenuItem = new ToolStripMenuItem();
         loadMenuStrip = new ContextMenuStrip(components);
-        loadFromFolderToolStripMenuItem = new ToolStripMenuItem();
-        loadFromMasterToolStripMenuItem = new ToolStripMenuItem();
+        loadFromFolderMenuItem = new ToolStripMenuItem();
+        loadFromMasterMenuItem = new ToolStripMenuItem();
         settingsMenuStrip = new ContextMenuStrip(components);
         changePathToolStripMenuItem = new ToolStripMenuItem();
         changePathMenuStrip = new ContextMenuStrip(components);
@@ -59,6 +61,10 @@ partial class Base
         changeThemeMenuStrip = new ContextMenuStrip(components);
         darkToolStripMenuItem = new ToolStripMenuItem();
         lightToolStripMenuItem = new ToolStripMenuItem();
+        separator1 = new Panel();
+        separator2 = new Panel();
+        separator3 = new Panel();
+        separator4 = new Panel();
         topPanel.SuspendLayout();
         settingsPanel.SuspendLayout();
         loadPanel.SuspendLayout();
@@ -74,44 +80,43 @@ partial class Base
         // 
         // bottomPanel
         // 
-        bottomPanel.BackColor = Color.DimGray;
-        bottomPanel.BorderStyle = BorderStyle.FixedSingle;
         bottomPanel.Dock = DockStyle.Bottom;
-        bottomPanel.Location = new Point(0, 436);
+        bottomPanel.Location = new Point(0, 497);
+        bottomPanel.Margin = new Padding(3, 4, 3, 4);
         bottomPanel.Name = "bottomPanel";
-        bottomPanel.Size = new Size(934, 25);
+        bottomPanel.Size = new Size(1042, 33);
         bottomPanel.TabIndex = 0;
         // 
         // topPanel
         // 
-        topPanel.BackColor = Color.DimGray;
-        topPanel.BorderStyle = BorderStyle.FixedSingle;
         topPanel.Controls.Add(settingsPanel);
         topPanel.Controls.Add(loadPanel);
         topPanel.Controls.Add(savePanel);
         topPanel.Dock = DockStyle.Top;
         topPanel.Location = new Point(0, 0);
+        topPanel.Margin = new Padding(3, 4, 3, 4);
         topPanel.Name = "topPanel";
-        topPanel.Size = new Size(934, 25);
+        topPanel.Size = new Size(1042, 33);
         topPanel.TabIndex = 1;
         // 
         // settingsPanel
         // 
-        settingsPanel.BackColor = Color.DimGray;
         settingsPanel.Controls.Add(settingsButton);
         settingsPanel.Dock = DockStyle.Left;
-        settingsPanel.Location = new Point(120, 0);
+        settingsPanel.Location = new Point(138, 0);
+        settingsPanel.Margin = new Padding(3, 4, 3, 4);
         settingsPanel.Name = "settingsPanel";
-        settingsPanel.Padding = new Padding(5, 0, 0, 0);
-        settingsPanel.Size = new Size(77, 23);
+        settingsPanel.Padding = new Padding(6, 0, 0, 0);
+        settingsPanel.Size = new Size(90, 33);
         settingsPanel.TabIndex = 2;
         // 
         // settingsButton
         // 
         settingsButton.Dock = DockStyle.Fill;
-        settingsButton.Location = new Point(5, 0);
+        settingsButton.Location = new Point(6, 0);
+        settingsButton.Margin = new Padding(3, 4, 3, 4);
         settingsButton.Name = "settingsButton";
-        settingsButton.Size = new Size(72, 23);
+        settingsButton.Size = new Size(84, 33);
         settingsButton.TabIndex = 0;
         settingsButton.Text = "Settings";
         settingsButton.UseVisualStyleBackColor = true;
@@ -119,21 +124,22 @@ partial class Base
         // 
         // loadPanel
         // 
-        loadPanel.BackColor = Color.DimGray;
         loadPanel.Controls.Add(loadButton);
         loadPanel.Dock = DockStyle.Left;
-        loadPanel.Location = new Point(60, 0);
+        loadPanel.Location = new Point(69, 0);
+        loadPanel.Margin = new Padding(3, 4, 3, 4);
         loadPanel.Name = "loadPanel";
-        loadPanel.Padding = new Padding(5, 0, 0, 0);
-        loadPanel.Size = new Size(60, 23);
+        loadPanel.Padding = new Padding(6, 0, 0, 0);
+        loadPanel.Size = new Size(69, 33);
         loadPanel.TabIndex = 1;
         // 
         // loadButton
         // 
         loadButton.Dock = DockStyle.Fill;
-        loadButton.Location = new Point(5, 0);
+        loadButton.Location = new Point(6, 0);
+        loadButton.Margin = new Padding(3, 4, 3, 4);
         loadButton.Name = "loadButton";
-        loadButton.Size = new Size(55, 23);
+        loadButton.Size = new Size(63, 33);
         loadButton.TabIndex = 0;
         loadButton.Text = "Load";
         loadButton.UseVisualStyleBackColor = true;
@@ -141,21 +147,22 @@ partial class Base
         // 
         // savePanel
         // 
-        savePanel.BackColor = Color.DimGray;
         savePanel.Controls.Add(saveButton);
         savePanel.Dock = DockStyle.Left;
         savePanel.Location = new Point(0, 0);
+        savePanel.Margin = new Padding(3, 4, 3, 4);
         savePanel.Name = "savePanel";
         savePanel.Padding = new Padding(1, 0, 0, 0);
-        savePanel.Size = new Size(60, 23);
+        savePanel.Size = new Size(69, 33);
         savePanel.TabIndex = 0;
         // 
         // saveButton
         // 
         saveButton.Dock = DockStyle.Fill;
         saveButton.Location = new Point(1, 0);
+        saveButton.Margin = new Padding(3, 4, 3, 4);
         saveButton.Name = "saveButton";
-        saveButton.Size = new Size(59, 23);
+        saveButton.Size = new Size(68, 33);
         saveButton.TabIndex = 0;
         saveButton.Text = "Save";
         saveButton.UseVisualStyleBackColor = true;
@@ -164,22 +171,23 @@ partial class Base
         // sidePanel
         // 
         sidePanel.BackColor = Color.Gray;
-        sidePanel.BorderStyle = BorderStyle.FixedSingle;
         sidePanel.Controls.Add(mainListButton);
         sidePanel.Controls.Add(listPanel);
         sidePanel.Dock = DockStyle.Left;
-        sidePanel.Location = new Point(0, 25);
+        sidePanel.Location = new Point(0, 34);
+        sidePanel.Margin = new Padding(3, 4, 3, 4);
         sidePanel.Name = "sidePanel";
-        sidePanel.Size = new Size(200, 411);
+        sidePanel.Size = new Size(228, 462);
         sidePanel.TabIndex = 2;
         // 
         // mainListButton
         // 
-        mainListButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        mainListButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         mainListButton.Enabled = false;
-        mainListButton.Location = new Point(2, 382);
+        mainListButton.Location = new Point(5, 427);
+        mainListButton.Margin = new Padding(3, 4, 3, 4);
         mainListButton.Name = "mainListButton";
-        mainListButton.Size = new Size(195, 25);
+        mainListButton.Size = new Size(219, 33);
         mainListButton.TabIndex = 1;
         mainListButton.Text = "Back to Menu";
         mainListButton.UseVisualStyleBackColor = true;
@@ -188,22 +196,26 @@ partial class Base
         // listPanel
         // 
         listPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        listPanel.AutoSize = true;
         listPanel.BackColor = Color.LightGray;
         listPanel.Controls.Add(talismanButton);
         listPanel.Controls.Add(dragonButton);
         listPanel.Controls.Add(charaButton);
         listPanel.Location = new Point(0, 0);
+        listPanel.Margin = new Padding(3, 4, 3, 4);
+        listPanel.MinimumSize = new Size(230, 0);
         listPanel.Name = "listPanel";
-        listPanel.Size = new Size(200, 380);
+        listPanel.Size = new Size(232, 424);
         listPanel.TabIndex = 0;
         // 
         // talismanButton
         // 
         talismanButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         talismanButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-        talismanButton.Location = new Point(3, 103);
+        talismanButton.Location = new Point(5, 137);
+        talismanButton.Margin = new Padding(3, 4, 3, 4);
         talismanButton.Name = "talismanButton";
-        talismanButton.Size = new Size(192, 43);
+        talismanButton.Size = new Size(217, 57);
         talismanButton.TabIndex = 2;
         talismanButton.Text = "Wyrmprints";
         talismanButton.UseVisualStyleBackColor = true;
@@ -213,9 +225,10 @@ partial class Base
         // 
         dragonButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         dragonButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-        dragonButton.Location = new Point(3, 54);
+        dragonButton.Location = new Point(5, 72);
+        dragonButton.Margin = new Padding(3, 4, 3, 4);
         dragonButton.Name = "dragonButton";
-        dragonButton.Size = new Size(192, 43);
+        dragonButton.Size = new Size(217, 57);
         dragonButton.TabIndex = 1;
         dragonButton.Text = "Dragons";
         dragonButton.UseVisualStyleBackColor = true;
@@ -223,11 +236,11 @@ partial class Base
         // 
         // charaButton
         // 
-        charaButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         charaButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-        charaButton.Location = new Point(3, 5);
+        charaButton.Location = new Point(5, 8);
+        charaButton.Margin = new Padding(3, 4, 3, 4);
         charaButton.Name = "charaButton";
-        charaButton.Size = new Size(192, 43);
+        charaButton.Size = new Size(217, 57);
         charaButton.TabIndex = 0;
         charaButton.Text = "Characters";
         charaButton.UseVisualStyleBackColor = true;
@@ -237,82 +250,87 @@ partial class Base
         // 
         detailPanel.BackColor = Color.DarkGray;
         detailPanel.Dock = DockStyle.Fill;
-        detailPanel.Location = new Point(200, 25);
+        detailPanel.Location = new Point(0, 0);
+        detailPanel.Margin = new Padding(3, 4, 3, 4);
         detailPanel.Name = "detailPanel";
-        detailPanel.Size = new Size(734, 411);
+        detailPanel.Size = new Size(1042, 530);
         detailPanel.TabIndex = 3;
         // 
         // saveMenuStrip
         // 
+        saveMenuStrip.ImageScalingSize = new Size(20, 20);
         saveMenuStrip.Items.AddRange(new ToolStripItem[] { saveToFolderMenuItem, saveToMasterMenuItem });
         saveMenuStrip.Name = "contextMenuStrip1";
-        saveMenuStrip.Size = new Size(152, 48);
+        saveMenuStrip.Size = new Size(177, 52);
         // 
         // saveToFolderMenuItem
         // 
         saveToFolderMenuItem.Name = "saveToFolderMenuItem";
-        saveToFolderMenuItem.Size = new Size(151, 22);
+        saveToFolderMenuItem.Size = new Size(176, 24);
         saveToFolderMenuItem.Text = "Save to Folder";
         saveToFolderMenuItem.Click += saveTo;
         // 
         // saveToMasterMenuItem
         // 
         saveToMasterMenuItem.Name = "saveToMasterMenuItem";
-        saveToMasterMenuItem.Size = new Size(151, 22);
+        saveToMasterMenuItem.Size = new Size(176, 24);
         saveToMasterMenuItem.Text = "Save to Master";
         saveToMasterMenuItem.Click += saveTo;
         // 
         // loadMenuStrip
         // 
-        loadMenuStrip.Items.AddRange(new ToolStripItem[] { loadFromFolderToolStripMenuItem, loadFromMasterToolStripMenuItem });
+        loadMenuStrip.ImageScalingSize = new Size(20, 20);
+        loadMenuStrip.Items.AddRange(new ToolStripItem[] { loadFromFolderMenuItem, loadFromMasterMenuItem });
         loadMenuStrip.Name = "loadMenuStrip";
-        loadMenuStrip.Size = new Size(169, 48);
+        loadMenuStrip.Size = new Size(197, 52);
         // 
-        // loadFromFolderToolStripMenuItem
+        // loadFromFolderMenuItem
         // 
-        loadFromFolderToolStripMenuItem.Name = "loadFromFolderToolStripMenuItem";
-        loadFromFolderToolStripMenuItem.Size = new Size(168, 22);
-        loadFromFolderToolStripMenuItem.Text = "Load from Folder";
-        loadFromFolderToolStripMenuItem.Click += loadFrom;
+        loadFromFolderMenuItem.Name = "loadFromFolderMenuItem";
+        loadFromFolderMenuItem.Size = new Size(196, 24);
+        loadFromFolderMenuItem.Text = "Load from Folder";
+        loadFromFolderMenuItem.Click += loadFrom;
         // 
-        // loadFromMasterToolStripMenuItem
+        // loadFromMasterMenuItem
         // 
-        loadFromMasterToolStripMenuItem.Name = "loadFromMasterToolStripMenuItem";
-        loadFromMasterToolStripMenuItem.Size = new Size(168, 22);
-        loadFromMasterToolStripMenuItem.Text = "Load from Master";
-        loadFromMasterToolStripMenuItem.Click += loadFrom;
+        loadFromMasterMenuItem.Name = "loadFromMasterMenuItem";
+        loadFromMasterMenuItem.Size = new Size(196, 24);
+        loadFromMasterMenuItem.Text = "Load from Master";
+        loadFromMasterMenuItem.Click += loadFrom;
         // 
         // settingsMenuStrip
         // 
+        settingsMenuStrip.ImageScalingSize = new Size(20, 20);
         settingsMenuStrip.Items.AddRange(new ToolStripItem[] { changePathToolStripMenuItem, changeThemeToolStripMenuItem });
         settingsMenuStrip.Name = "settingsMenuStrip";
-        settingsMenuStrip.Size = new Size(155, 48);
+        settingsMenuStrip.Size = new Size(178, 52);
         // 
         // changePathToolStripMenuItem
         // 
         changePathToolStripMenuItem.DropDown = changePathMenuStrip;
         changePathToolStripMenuItem.Name = "changePathToolStripMenuItem";
-        changePathToolStripMenuItem.Size = new Size(154, 22);
+        changePathToolStripMenuItem.Size = new Size(177, 24);
         changePathToolStripMenuItem.Text = "Change Path";
         // 
         // changePathMenuStrip
         // 
+        changePathMenuStrip.ImageScalingSize = new Size(20, 20);
         changePathMenuStrip.Items.AddRange(new ToolStripItem[] { editPathToFolderToolStripMenuItem, editPathToMasterToolStripMenuItem });
         changePathMenuStrip.Name = "changePathMenuStrip";
         changePathMenuStrip.OwnerItem = changePathToolStripMenuItem;
-        changePathMenuStrip.Size = new Size(178, 48);
+        changePathMenuStrip.Size = new Size(208, 52);
         // 
         // editPathToFolderToolStripMenuItem
         // 
         editPathToFolderToolStripMenuItem.Name = "editPathToFolderToolStripMenuItem";
-        editPathToFolderToolStripMenuItem.Size = new Size(177, 22);
+        editPathToFolderToolStripMenuItem.Size = new Size(207, 24);
         editPathToFolderToolStripMenuItem.Text = "Edit Path to Folder";
         editPathToFolderToolStripMenuItem.Click += editPath;
         // 
         // editPathToMasterToolStripMenuItem
         // 
         editPathToMasterToolStripMenuItem.Name = "editPathToMasterToolStripMenuItem";
-        editPathToMasterToolStripMenuItem.Size = new Size(177, 22);
+        editPathToMasterToolStripMenuItem.Size = new Size(207, 24);
         editPathToMasterToolStripMenuItem.Text = "Edit Path to Master ";
         editPathToMasterToolStripMenuItem.Click += editPath;
         // 
@@ -320,43 +338,79 @@ partial class Base
         // 
         changeThemeToolStripMenuItem.DropDown = changeThemeMenuStrip;
         changeThemeToolStripMenuItem.Name = "changeThemeToolStripMenuItem";
-        changeThemeToolStripMenuItem.Size = new Size(154, 22);
+        changeThemeToolStripMenuItem.Size = new Size(177, 24);
         changeThemeToolStripMenuItem.Text = "Change Theme";
         // 
         // changeThemeMenuStrip
         // 
+        changeThemeMenuStrip.ImageScalingSize = new Size(20, 20);
         changeThemeMenuStrip.Items.AddRange(new ToolStripItem[] { darkToolStripMenuItem, lightToolStripMenuItem });
         changeThemeMenuStrip.Name = "changeThemeMenuStrip";
         changeThemeMenuStrip.OwnerItem = changeThemeToolStripMenuItem;
-        changeThemeMenuStrip.Size = new Size(102, 48);
+        changeThemeMenuStrip.Size = new Size(112, 56);
         // 
         // darkToolStripMenuItem
         // 
         darkToolStripMenuItem.Checked = true;
         darkToolStripMenuItem.CheckState = CheckState.Checked;
         darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-        darkToolStripMenuItem.Size = new Size(101, 22);
+        darkToolStripMenuItem.Size = new Size(111, 26);
         darkToolStripMenuItem.Text = "Dark";
         darkToolStripMenuItem.Click += changeTheme;
         // 
         // lightToolStripMenuItem
         // 
         lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-        lightToolStripMenuItem.Size = new Size(101, 22);
+        lightToolStripMenuItem.Size = new Size(111, 26);
         lightToolStripMenuItem.Text = "Light";
         lightToolStripMenuItem.Click += changeTheme;
         // 
+        // separator1
+        // 
+        separator1.Dock = DockStyle.Left;
+        separator1.Location = new Point(228, 34);
+        separator1.Name = "separator1";
+        separator1.Size = new Size(1, 462);
+        separator1.TabIndex = 5;
+        // 
+        // separator2
+        // 
+        separator2.Dock = DockStyle.Top;
+        separator2.Location = new Point(0, 33);
+        separator2.Name = "separator2";
+        separator2.Size = new Size(1042, 1);
+        separator2.TabIndex = 6;
+        // 
+        // separator3
+        // 
+        separator3.Dock = DockStyle.Bottom;
+        separator3.Location = new Point(0, 496);
+        separator3.Name = "separator3";
+        separator3.Size = new Size(1042, 1);
+        separator3.TabIndex = 7;
+        // 
+        // separator4
+        // 
+        separator4.Dock = DockStyle.Right;
+        separator4.Location = new Point(1041, 34);
+        separator4.Name = "separator4";
+        separator4.Size = new Size(1, 462);
+        separator4.TabIndex = 8;
+        // 
         // Base
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(64, 64, 64);
-        ClientSize = new Size(934, 461);
-        Controls.Add(detailPanel);
+        ClientSize = new Size(1042, 530);
+        Controls.Add(separator4);
+        Controls.Add(separator1);
         Controls.Add(sidePanel);
-        Controls.Add(topPanel);
+        Controls.Add(separator3);
         Controls.Add(bottomPanel);
-        Margin = new Padding(3, 2, 3, 2);
+        Controls.Add(separator2);
+        Controls.Add(topPanel);
+        Controls.Add(detailPanel);
         Name = "Base";
         Text = "Dragalia Lost Data Editor";
         Load += Base_Load;
@@ -365,6 +419,7 @@ partial class Base
         loadPanel.ResumeLayout(false);
         savePanel.ResumeLayout(false);
         sidePanel.ResumeLayout(false);
+        sidePanel.PerformLayout();
         listPanel.ResumeLayout(false);
         saveMenuStrip.ResumeLayout(false);
         loadMenuStrip.ResumeLayout(false);
@@ -381,22 +436,15 @@ partial class Base
     private Panel sidePanel;
     private Panel listPanel;
     private Panel detailPanel;
-    private Button mainListButton;
-    private Button charaButton;
-    private Button talismanButton;
-    private Button dragonButton;
     private Panel savePanel;
-    private Button saveButton;
     private Panel loadPanel;
-    private Button loadButton;
     private Panel settingsPanel;
-    private Button settingsButton;
     private ContextMenuStrip saveMenuStrip;
     private ToolStripMenuItem saveToFolderMenuItem;
     private ToolStripMenuItem saveToMasterMenuItem;
     private ContextMenuStrip loadMenuStrip;
-    private ToolStripMenuItem loadFromFolderToolStripMenuItem;
-    private ToolStripMenuItem loadFromMasterToolStripMenuItem;
+    private ToolStripMenuItem loadFromFolderMenuItem;
+    private ToolStripMenuItem loadFromMasterMenuItem;
     private ContextMenuStrip settingsMenuStrip;
     private ToolStripMenuItem changePathToolStripMenuItem;
     private ContextMenuStrip changePathMenuStrip;
@@ -406,4 +454,15 @@ partial class Base
     private ContextMenuStrip changeThemeMenuStrip;
     private ToolStripMenuItem darkToolStripMenuItem;
     private ToolStripMenuItem lightToolStripMenuItem;
+    private NoFocusCueButton mainListButton;
+    private NoFocusCueButton charaButton;
+    private NoFocusCueButton talismanButton;
+    private NoFocusCueButton dragonButton;
+    private NoFocusCueButton saveButton;
+    private NoFocusCueButton loadButton;
+    private NoFocusCueButton settingsButton;
+    private Panel separator1;
+    private Panel separator2;
+    private Panel separator3;
+    private Panel separator4;
 }

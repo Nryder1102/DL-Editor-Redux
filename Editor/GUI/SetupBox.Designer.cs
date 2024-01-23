@@ -1,4 +1,6 @@
-﻿namespace Editor.GUI
+﻿
+
+namespace Editor.GUI
 {
     partial class SetupBox
     {
@@ -31,9 +33,11 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            loadFromFolder = new Button();
-            loadFromAsset = new Button();
+            loadFromFolder = new NoFocusCueButton();
+            loadFromAsset = new NoFocusCueButton();
             choicePanel = new Panel();
+            folderBrowser = new FolderBrowserDialog();
+            fileBrowser = new OpenFileDialog();
             panel1.SuspendLayout();
             choicePanel.SuspendLayout();
             SuspendLayout();
@@ -45,7 +49,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(416, 30);
+            label1.Size = new Size(516, 37);
             label1.TabIndex = 0;
             label1.Text = "Welcome to the Dragalia Lost Data Editor!";
             // 
@@ -53,12 +57,11 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(3, 36);
+            label2.Location = new Point(3, 48);
             label2.Name = "label2";
-            label2.Size = new Size(237, 15);
+            label2.Size = new Size(300, 20);
             label2.TabIndex = 1;
             label2.Text = "Please choose how to initially load the data:";
-            label2.Click += label2_Click;
             // 
             // panel1
             // 
@@ -66,52 +69,62 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(485, 33);
+            panel1.Size = new Size(619, 44);
             panel1.TabIndex = 2;
             // 
             // loadFromFolder
             // 
-            loadFromFolder.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            loadFromFolder.Anchor = AnchorStyles.None;
             loadFromFolder.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            loadFromFolder.Location = new Point(147, 76);
+            loadFromFolder.Location = new Point(184, 100);
+            loadFromFolder.Margin = new Padding(3, 4, 3, 4);
             loadFromFolder.Name = "loadFromFolder";
-            loadFromFolder.Size = new Size(193, 41);
+            loadFromFolder.Size = new Size(240, 55);
             loadFromFolder.TabIndex = 3;
             loadFromFolder.Text = "Load From Folder";
             loadFromFolder.UseVisualStyleBackColor = true;
-            loadFromFolder.Click += loadFromFolder_Click;
+            loadFromFolder.Click += setDefaultPath;
             // 
             // loadFromAsset
             // 
-            loadFromAsset.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            loadFromAsset.Anchor = AnchorStyles.None;
             loadFromAsset.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            loadFromAsset.Location = new Point(147, 142);
+            loadFromAsset.Location = new Point(184, 194);
+            loadFromAsset.Margin = new Padding(3, 4, 3, 4);
             loadFromAsset.Name = "loadFromAsset";
-            loadFromAsset.Size = new Size(193, 41);
+            loadFromAsset.Size = new Size(240, 55);
             loadFromAsset.TabIndex = 4;
             loadFromAsset.Text = "Load From Master Asset";
             loadFromAsset.UseVisualStyleBackColor = true;
+            loadFromAsset.Click += setDefaultPath;
             // 
             // choicePanel
             // 
+            choicePanel.Controls.Add(loadFromAsset);
             choicePanel.Controls.Add(label2);
             choicePanel.Controls.Add(loadFromFolder);
             choicePanel.Dock = DockStyle.Fill;
             choicePanel.Location = new Point(0, 0);
+            choicePanel.Margin = new Padding(3, 4, 3, 4);
             choicePanel.Name = "choicePanel";
-            choicePanel.Size = new Size(485, 214);
+            choicePanel.Size = new Size(619, 299);
             choicePanel.TabIndex = 5;
+            // 
+            // fileBrowser
+            // 
+            fileBrowser.FileName = "openFileDialog1";
             // 
             // SetupBox
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(485, 214);
-            Controls.Add(loadFromAsset);
+            ClientSize = new Size(619, 299);
             Controls.Add(panel1);
             Controls.Add(choicePanel);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SetupBox";
             Text = "First Time Setup";
             panel1.ResumeLayout(false);
@@ -129,5 +142,7 @@
         private Button loadFromFolder;
         private Button loadFromAsset;
         private Panel choicePanel;
+        private FolderBrowserDialog folderBrowser;
+        private OpenFileDialog fileBrowser;
     }
 }

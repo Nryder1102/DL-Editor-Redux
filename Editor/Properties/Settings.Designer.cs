@@ -25,7 +25,7 @@ namespace Editor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("dark")]
+        [global::System.Configuration.DefaultSettingValueAttribute("nature")]
         public string Theme {
             get {
                 return ((string)(this["Theme"]));
@@ -61,7 +61,7 @@ namespace Editor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("folder")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DefaultSaveType {
             get {
                 return ((string)(this["DefaultSaveType"]));
