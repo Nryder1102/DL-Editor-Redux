@@ -33,12 +33,14 @@ partial class Base
         components = new System.ComponentModel.Container();
         bottomPanel = new Panel();
         topPanel = new Panel();
+        separator5 = new Panel();
         settingsPanel = new Panel();
         settingsButton = new NoFocusCueButton();
         loadPanel = new Panel();
         loadButton = new NoFocusCueButton();
         savePanel = new Panel();
         saveButton = new NoFocusCueButton();
+        separator6 = new Panel();
         sidePanel = new Panel();
         mainListButton = new NoFocusCueButton();
         listPanel = new Panel();
@@ -65,6 +67,10 @@ partial class Base
         separator2 = new Panel();
         separator3 = new Panel();
         separator4 = new Panel();
+        separator7 = new Panel();
+        separator8 = new Panel();
+        separator9 = new Panel();
+        bottomPanel.SuspendLayout();
         topPanel.SuspendLayout();
         settingsPanel.SuspendLayout();
         loadPanel.SuspendLayout();
@@ -80,30 +86,42 @@ partial class Base
         // 
         // bottomPanel
         // 
+        bottomPanel.Controls.Add(separator8);
+        bottomPanel.Controls.Add(separator7);
         bottomPanel.Dock = DockStyle.Bottom;
-        bottomPanel.Location = new Point(0, 497);
+        bottomPanel.Location = new Point(1, 497);
         bottomPanel.Margin = new Padding(3, 4, 3, 4);
         bottomPanel.Name = "bottomPanel";
-        bottomPanel.Size = new Size(1042, 33);
+        bottomPanel.Size = new Size(1041, 33);
         bottomPanel.TabIndex = 0;
         // 
         // topPanel
         // 
+        topPanel.Controls.Add(separator5);
         topPanel.Controls.Add(settingsPanel);
         topPanel.Controls.Add(loadPanel);
         topPanel.Controls.Add(savePanel);
+        topPanel.Controls.Add(separator6);
         topPanel.Dock = DockStyle.Top;
-        topPanel.Location = new Point(0, 0);
+        topPanel.Location = new Point(1, 0);
         topPanel.Margin = new Padding(3, 4, 3, 4);
         topPanel.Name = "topPanel";
-        topPanel.Size = new Size(1042, 33);
+        topPanel.Size = new Size(1041, 33);
         topPanel.TabIndex = 1;
+        // 
+        // separator5
+        // 
+        separator5.Dock = DockStyle.Right;
+        separator5.Location = new Point(1040, 0);
+        separator5.Name = "separator5";
+        separator5.Size = new Size(1, 33);
+        separator5.TabIndex = 3;
         // 
         // settingsPanel
         // 
         settingsPanel.Controls.Add(settingsButton);
         settingsPanel.Dock = DockStyle.Left;
-        settingsPanel.Location = new Point(138, 0);
+        settingsPanel.Location = new Point(139, 0);
         settingsPanel.Margin = new Padding(3, 4, 3, 4);
         settingsPanel.Name = "settingsPanel";
         settingsPanel.Padding = new Padding(6, 0, 0, 0);
@@ -126,7 +144,7 @@ partial class Base
         // 
         loadPanel.Controls.Add(loadButton);
         loadPanel.Dock = DockStyle.Left;
-        loadPanel.Location = new Point(69, 0);
+        loadPanel.Location = new Point(70, 0);
         loadPanel.Margin = new Padding(3, 4, 3, 4);
         loadPanel.Name = "loadPanel";
         loadPanel.Padding = new Padding(6, 0, 0, 0);
@@ -149,7 +167,7 @@ partial class Base
         // 
         savePanel.Controls.Add(saveButton);
         savePanel.Dock = DockStyle.Left;
-        savePanel.Location = new Point(0, 0);
+        savePanel.Location = new Point(1, 0);
         savePanel.Margin = new Padding(3, 4, 3, 4);
         savePanel.Name = "savePanel";
         savePanel.Padding = new Padding(1, 0, 0, 0);
@@ -168,13 +186,21 @@ partial class Base
         saveButton.UseVisualStyleBackColor = true;
         saveButton.Click += activateDropDown;
         // 
+        // separator6
+        // 
+        //separator6.Dock = DockStyle.Left;
+        //separator6.Location = new Point(0, 0);
+        //separator6.Name = "separator6";
+        //separator6.Size = new Size(1, 33);
+        //separator6.TabIndex = 4;
+        // 
         // sidePanel
         // 
         sidePanel.BackColor = Color.Gray;
         sidePanel.Controls.Add(mainListButton);
         sidePanel.Controls.Add(listPanel);
         sidePanel.Dock = DockStyle.Left;
-        sidePanel.Location = new Point(0, 34);
+        sidePanel.Location = new Point(1, 34);
         sidePanel.Margin = new Padding(3, 4, 3, 4);
         sidePanel.Name = "sidePanel";
         sidePanel.Size = new Size(228, 462);
@@ -250,10 +276,10 @@ partial class Base
         // 
         detailPanel.BackColor = Color.DarkGray;
         detailPanel.Dock = DockStyle.Fill;
-        detailPanel.Location = new Point(0, 0);
+        detailPanel.Location = new Point(1, 0);
         detailPanel.Margin = new Padding(3, 4, 3, 4);
         detailPanel.Name = "detailPanel";
-        detailPanel.Size = new Size(1042, 530);
+        detailPanel.Size = new Size(1041, 530);
         detailPanel.TabIndex = 3;
         // 
         // saveMenuStrip
@@ -368,7 +394,7 @@ partial class Base
         // separator1
         // 
         separator1.Dock = DockStyle.Left;
-        separator1.Location = new Point(228, 34);
+        separator1.Location = new Point(229, 34);
         separator1.Name = "separator1";
         separator1.Size = new Size(1, 462);
         separator1.TabIndex = 5;
@@ -376,17 +402,17 @@ partial class Base
         // separator2
         // 
         separator2.Dock = DockStyle.Top;
-        separator2.Location = new Point(0, 33);
+        separator2.Location = new Point(1, 33);
         separator2.Name = "separator2";
-        separator2.Size = new Size(1042, 1);
+        separator2.Size = new Size(1041, 1);
         separator2.TabIndex = 6;
         // 
         // separator3
         // 
         separator3.Dock = DockStyle.Bottom;
-        separator3.Location = new Point(0, 496);
+        separator3.Location = new Point(1, 496);
         separator3.Name = "separator3";
-        separator3.Size = new Size(1042, 1);
+        separator3.Size = new Size(1041, 1);
         separator3.TabIndex = 7;
         // 
         // separator4
@@ -396,6 +422,30 @@ partial class Base
         separator4.Name = "separator4";
         separator4.Size = new Size(1, 462);
         separator4.TabIndex = 8;
+        // 
+        // separator7
+        // 
+        separator7.Dock = DockStyle.Right;
+        separator7.Location = new Point(1040, 0);
+        separator7.Name = "separator7";
+        separator7.Size = new Size(1, 33);
+        separator7.TabIndex = 0;
+        // 
+        // separator8
+        // 
+        //separator8.Dock = DockStyle.Left;
+        //separator8.Location = new Point(0, 0);
+        //separator8.Name = "separator8";
+        //separator8.Size = new Size(1, 33);
+        //separator8.TabIndex = 1;
+        // 
+        // separator9
+        // 
+        separator9.Dock = DockStyle.Left;
+        separator9.Location = new Point(0, 0);
+        separator9.Name = "separator9";
+        separator9.Size = new Size(1, 530);
+        separator9.TabIndex = 9;
         // 
         // Base
         // 
@@ -411,9 +461,11 @@ partial class Base
         Controls.Add(separator2);
         Controls.Add(topPanel);
         Controls.Add(detailPanel);
+        Controls.Add(separator9);
         Name = "Base";
         Text = "Dragalia Lost Data Editor";
         Load += Base_Load;
+        bottomPanel.ResumeLayout(false);
         topPanel.ResumeLayout(false);
         settingsPanel.ResumeLayout(false);
         loadPanel.ResumeLayout(false);
@@ -465,4 +517,9 @@ partial class Base
     private Panel separator2;
     private Panel separator3;
     private Panel separator4;
+    private Panel separator5;
+    private Panel separator6;
+    private Panel separator8;
+    private Panel separator7;
+    private Panel separator9;
 }

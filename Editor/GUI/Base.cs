@@ -204,6 +204,11 @@ public partial class Base : Form
         separator2.BackColor = accentColor;
         separator3.BackColor = accentColor;
         separator4.BackColor = accentColor;
+        separator5.BackColor = accentColor;
+        //separator6.BackColor = accentColor;
+        separator7.BackColor = accentColor;
+        //separator8.BackColor = accentColor;
+        separator9.BackColor = accentColor;
     }
 
     //Function that governs which list will be displayed on selection
