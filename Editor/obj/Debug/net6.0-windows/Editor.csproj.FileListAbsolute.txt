@@ -16,4 +16,3 @@ C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\Debug\net6.0-w
 C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\Debug\net6.0-windows\Editor.genruntimeconfig.cache
 C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\Debug\net6.0-windows\ref\Editor.dll
 C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\bin\Debug\net6.0-windows\Editor.dll.config
-C:\Users\M. Precanico\Documents\GitHub\DL-Editor-Redux\Editor\obj\Debug\net6.0-windows\Editor.GUI.SetupBox.resources

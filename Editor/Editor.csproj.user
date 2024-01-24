@@ -4,9 +4,6 @@
     <Compile Update="GUI\Base.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\SetupBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="GUI\CustomUIObjects.cs">
       <SubType>Component</SubType>
     </Compile>

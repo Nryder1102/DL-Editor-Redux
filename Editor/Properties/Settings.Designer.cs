@@ -25,49 +25,13 @@ namespace Editor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("nature")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dark")]
         public string Theme {
             get {
                 return ((string)(this["Theme"]));
             }
             set {
                 this["Theme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string FolderPath {
-            get {
-                return ((string)(this["FolderPath"]));
-            }
-            set {
-                this["FolderPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MasterPath {
-            get {
-                return ((string)(this["MasterPath"]));
-            }
-            set {
-                this["MasterPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DefaultSaveType {
-            get {
-                return ((string)(this["DefaultSaveType"]));
-            }
-            set {
-                this["DefaultSaveType"] = value;
             }
         }
     }
