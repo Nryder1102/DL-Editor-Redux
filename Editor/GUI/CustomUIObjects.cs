@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Data;
+using System.Windows.Forms.Design;
+using Editor.Properties;
 
 namespace Editor.GUI
 {
+    //Special type of button that removes the default focus highlight, plus a few other things
     public class NoFocusCueButton : Button
     {
 
@@ -101,6 +105,6 @@ namespace Editor.GUI
 
     }
 
-
-
+    
 }
+

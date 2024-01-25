@@ -49,6 +49,11 @@ partial class Base
         dragonButton = new NoFocusCueButton();
         talismanButton = new NoFocusCueButton();
         detailPanel = new Panel();
+        characterControl = new TabControl();
+        characterBasicTab = new TabPage();
+        characterStatsTab = new TabPage();
+        characterSkillsTab = new TabPage();
+        characterMiscTab = new TabPage();
         changeThemeMenuStrip = new ContextMenuStrip(components);
         darkToolStripMenuItem = new ToolStripMenuItem();
         lightToolStripMenuItem = new ToolStripMenuItem();
@@ -69,6 +74,8 @@ partial class Base
         savePanel.SuspendLayout();
         sidePanel.SuspendLayout();
         listPanel.SuspendLayout();
+        detailPanel.SuspendLayout();
+        characterControl.SuspendLayout();
         changeThemeMenuStrip.SuspendLayout();
         settingsMenuStrip.SuspendLayout();
         SuspendLayout();
@@ -136,7 +143,7 @@ partial class Base
         settingsButton.TabIndex = 0;
         settingsButton.Text = "Settings";
         settingsButton.UseVisualStyleBackColor = true;
-        settingsButton.Click += activateDropDown;
+        settingsButton.Click += ActivateDropDown;
         // 
         // loadPanel
         // 
@@ -162,7 +169,7 @@ partial class Base
         loadButton.TabIndex = 0;
         loadButton.Text = "Load";
         loadButton.UseVisualStyleBackColor = true;
-        loadButton.Click += loadFrom;
+        loadButton.Click += LoadFrom;
         // 
         // savePanel
         // 
@@ -187,7 +194,7 @@ partial class Base
         saveButton.TabIndex = 0;
         saveButton.Text = "Save";
         saveButton.UseVisualStyleBackColor = true;
-        saveButton.Click += saveTo;
+        saveButton.Click += SaveTo;
         // 
         // sidePanel
         // 
@@ -215,7 +222,7 @@ partial class Base
         mainListButton.TabIndex = 1;
         mainListButton.Text = "Back to Menu";
         mainListButton.UseVisualStyleBackColor = true;
-        mainListButton.Click += chooseList;
+        mainListButton.Click += ChooseList;
         // 
         // listPanel
         // 
@@ -235,10 +242,12 @@ partial class Base
         // 
         // listContainer
         // 
+        listContainer.AutoScroll = true;
         listContainer.Location = new Point(5, 8);
         listContainer.Name = "listContainer";
         listContainer.Size = new Size(217, 411);
         listContainer.TabIndex = 0;
+        listContainer.Visible = false;
         // 
         // charaButton
         // 
@@ -253,7 +262,7 @@ partial class Base
         charaButton.TabIndex = 0;
         charaButton.Text = "Characters";
         charaButton.UseVisualStyleBackColor = true;
-        charaButton.Click += chooseList;
+        charaButton.Click += ChooseList;
         // 
         // dragonButton
         // 
@@ -268,7 +277,7 @@ partial class Base
         dragonButton.TabIndex = 1;
         dragonButton.Text = "Dragons";
         dragonButton.UseVisualStyleBackColor = true;
-        dragonButton.Click += chooseList;
+        dragonButton.Click += ChooseList;
         // 
         // talismanButton
         // 
@@ -283,17 +292,68 @@ partial class Base
         talismanButton.TabIndex = 2;
         talismanButton.Text = "Wyrmprints";
         talismanButton.UseVisualStyleBackColor = true;
-        talismanButton.Click += chooseList;
+        talismanButton.Click += ChooseList;
         // 
         // detailPanel
         // 
         detailPanel.BackColor = Color.DarkGray;
+        detailPanel.Controls.Add(characterControl);
         detailPanel.Dock = DockStyle.Fill;
         detailPanel.Location = new Point(1, 0);
         detailPanel.Margin = new Padding(3, 4, 3, 4);
         detailPanel.Name = "detailPanel";
         detailPanel.Size = new Size(1041, 530);
         detailPanel.TabIndex = 3;
+        // 
+        // characterControl
+        // 
+        characterControl.Controls.Add(characterBasicTab);
+        characterControl.Controls.Add(characterStatsTab);
+        characterControl.Controls.Add(characterSkillsTab);
+        characterControl.Controls.Add(characterMiscTab);
+        characterControl.Location = new Point(228, 33);
+        characterControl.Name = "characterControl";
+        characterControl.SelectedIndex = 0;
+        characterControl.Size = new Size(813, 464);
+        characterControl.TabIndex = 0;
+        // 
+        // characterBasicTab
+        // 
+        characterBasicTab.Location = new Point(4, 29);
+        characterBasicTab.Name = "characterBasicTab";
+        characterBasicTab.Padding = new Padding(3);
+        characterBasicTab.Size = new Size(805, 431);
+        characterBasicTab.TabIndex = 0;
+        characterBasicTab.Text = "Basic Info";
+        characterBasicTab.UseVisualStyleBackColor = true;
+        // 
+        // characterStatsTab
+        // 
+        characterStatsTab.Location = new Point(4, 29);
+        characterStatsTab.Name = "characterStatsTab";
+        characterStatsTab.Padding = new Padding(3);
+        characterStatsTab.Size = new Size(805, 431);
+        characterStatsTab.TabIndex = 1;
+        characterStatsTab.Text = "Stats";
+        characterStatsTab.UseVisualStyleBackColor = true;
+        // 
+        // characterSkillsTab
+        // 
+        characterSkillsTab.Location = new Point(4, 29);
+        characterSkillsTab.Name = "characterSkillsTab";
+        characterSkillsTab.Size = new Size(805, 431);
+        characterSkillsTab.TabIndex = 2;
+        characterSkillsTab.Text = "Skills & Abilities";
+        characterSkillsTab.UseVisualStyleBackColor = true;
+        // 
+        // characterMiscTab
+        // 
+        characterMiscTab.Location = new Point(4, 29);
+        characterMiscTab.Name = "characterMiscTab";
+        characterMiscTab.Size = new Size(805, 431);
+        characterMiscTab.TabIndex = 3;
+        characterMiscTab.Text = "Misc.";
+        characterMiscTab.UseVisualStyleBackColor = true;
         // 
         // changeThemeMenuStrip
         // 
@@ -310,35 +370,35 @@ partial class Base
         darkToolStripMenuItem.Name = "darkToolStripMenuItem";
         darkToolStripMenuItem.Size = new Size(121, 26);
         darkToolStripMenuItem.Text = "Dark";
-        darkToolStripMenuItem.Click += changeTheme;
+        darkToolStripMenuItem.Click += ChangeTheme;
         // 
         // lightToolStripMenuItem
         // 
         lightToolStripMenuItem.Name = "lightToolStripMenuItem";
         lightToolStripMenuItem.Size = new Size(121, 26);
         lightToolStripMenuItem.Text = "Light";
-        lightToolStripMenuItem.Click += changeTheme;
+        lightToolStripMenuItem.Click += ChangeTheme;
         // 
         // blueToolStripMenuItem
         // 
         blueToolStripMenuItem.Name = "blueToolStripMenuItem";
         blueToolStripMenuItem.Size = new Size(121, 26);
         blueToolStripMenuItem.Text = "Blue";
-        blueToolStripMenuItem.Click += changeTheme;
+        blueToolStripMenuItem.Click += ChangeTheme;
         // 
         // redToolStripMenuItem
         // 
         redToolStripMenuItem.Name = "redToolStripMenuItem";
         redToolStripMenuItem.Size = new Size(121, 26);
         redToolStripMenuItem.Text = "Red";
-        redToolStripMenuItem.Click += changeTheme;
+        redToolStripMenuItem.Click += ChangeTheme;
         // 
         // yellowToolStripMenuItem
         // 
         yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
         yellowToolStripMenuItem.Size = new Size(121, 26);
         yellowToolStripMenuItem.Text = "Yellow";
-        yellowToolStripMenuItem.Click += changeTheme;
+        yellowToolStripMenuItem.Click += ChangeTheme;
         // 
         // changeThemeToolStripMenuItem
         // 
@@ -409,6 +469,8 @@ partial class Base
         Controls.Add(topPanel);
         Controls.Add(detailPanel);
         Controls.Add(separator7);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        MaximizeBox = false;
         Name = "Base";
         Text = "Dragalia Lost Data Editor";
         Load += Base_Load;
@@ -421,12 +483,50 @@ partial class Base
         sidePanel.ResumeLayout(false);
         sidePanel.PerformLayout();
         listPanel.ResumeLayout(false);
+        detailPanel.ResumeLayout(false);
+        characterControl.ResumeLayout(false);
         changeThemeMenuStrip.ResumeLayout(false);
         settingsMenuStrip.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
+
+    //Override dropdown menu colors
+    private class MenuRenderer : ToolStripProfessionalRenderer
+    {
+        public MenuRenderer() : base(new MenuColors()) { }
+    }
+
+    private class MenuColors : ProfessionalColorTable
+    {
+
+        int currentTheme;
+
+        public MenuColors()
+        {
+            currentTheme = GetTheme();
+        }
+
+
+        public override Color MenuItemSelected
+        {
+            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
+        }
+        public override Color MenuItemSelectedGradientBegin
+        {
+            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
+        }
+        public override Color MenuItemSelectedGradientEnd
+        {
+            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
+        }
+        public override Color MenuItemBorder
+        {
+            get { return Color.Transparent; }
+        }
+
+    }
 
     private Panel bottomPanel;
     private Panel topPanel;
@@ -459,4 +559,9 @@ partial class Base
     private ToolStripMenuItem yellowToolStripMenuItem;
     private Panel listContainer;
     public NoFocusCueButton settingsButton;
+    private TabControl characterControl;
+    private TabPage characterBasicTab;
+    private TabPage characterStatsTab;
+    private TabPage characterSkillsTab;
+    private TabPage characterMiscTab;
 }

@@ -95,7 +95,7 @@ public partial class Base : Form
                     blueToolStripMenuItem.Checked = false;
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
-                    loadTheme(0);
+                    LoadTheme(0);
                     break;
                 }
             case "dark":
@@ -105,7 +105,7 @@ public partial class Base : Form
                     blueToolStripMenuItem.Checked = false;
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
-                    loadTheme(1);
+                    LoadTheme(1);
                     break;
                 }
             case "blue":
@@ -115,7 +115,7 @@ public partial class Base : Form
                     blueToolStripMenuItem.Checked = true;
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
-                    loadTheme(2);
+                    LoadTheme(2);
                     break;
                 }
             case "red":
@@ -125,7 +125,7 @@ public partial class Base : Form
                     blueToolStripMenuItem.Checked = false;
                     redToolStripMenuItem.Checked = true;
                     yellowToolStripMenuItem.Checked = false;
-                    loadTheme(3);
+                    LoadTheme(3);
                     break;
                 }
             case "yellow":
@@ -135,7 +135,7 @@ public partial class Base : Form
                     blueToolStripMenuItem.Checked = false;
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = true;
-                    loadTheme(4);
+                    LoadTheme(4);
                     break;
                 }
         }
@@ -162,32 +162,32 @@ public partial class Base : Form
         //Ctrl + S for save
         if (e.Control && e.KeyCode == Keys.S)
         {
-            saveTo(sender, e);
+            SaveTo(sender, e);
         }
 
         //I'll figure out undo and redo someday, maybe
     }
 
     //Function to save changes to the master asset bundle, somehow
-    private void saveTo(object sender, EventArgs e)
+    private void SaveTo(object sender, EventArgs e)
     {
         System.Windows.Forms.MessageBox.Show("Are you sure you want to save?");
     }
 
     //Function to try and grab the needed files from the master asset bundle, somehow
-    private void loadFrom(object sender, EventArgs e)
+    private void LoadFrom(object sender, EventArgs e)
     {
 
         charaButton.Enabled = true;
         dragonButton.Enabled = true;
         talismanButton.Enabled = true;
 
-        createLists();
+        CreateLists();
 
     }
 
     //Function that governs which list will be displayed on selection
-    private void chooseList(object sender, EventArgs e)
+    private void ChooseList(object sender, EventArgs e)
     {
         if (sender != mainListButton)
         {
@@ -195,36 +195,53 @@ public partial class Base : Form
             dragonButton.Visible = false;
             talismanButton.Visible = false;
             mainListButton.Enabled = true;
+            listContainer.Visible = true;
+            if (sender == charaButton)
+            {
+                for (int i = characterButtons.Count - 1; i >= 0; i--)
+                {
+                    characterControl.Visible = true;
+                    listContainer.Controls.Add(characterButtons[i]);
+                }
+            }
         }
         else
         {
             charaButton.Visible = true;
+            characterControl.Visible = false;
             dragonButton.Visible = true;
             talismanButton.Visible = true;
             mainListButton.Enabled = false;
+            listContainer.Visible = false;
+            listContainer.Controls.Clear();
         }
     }
 
     //Function to generate the button lists from the master asset
-    private void createLists()
+    private void CreateLists()
     {
-        for (int i = 0; i < 10; i++)
+        int basex = listContainer.Location.X;
+        int basey = 0;
+
+        for (int i = 0; i < 30; i++)
         {
             NoFocusCueButton temp = new NoFocusCueButton();
             temp.Name = i.ToString();
             temp.Text = "Button #" + i;
-            temp.Size = new Size(200, 30);
-            temp.FlatStyle = FlatStyle.Flat;
-            temp.Dock = DockStyle.Top;
+            temp.Size = new Size(180, 30);
+            temp.Left = basex;
+            temp.Top = basey;
+            temp.BackColor = Themes[GetTheme()][ThemeColor.Buttons];
+            temp.ForeColor = Themes[GetTheme()][ThemeColor.Text];
+            basey += 35;
             characterButtons.Add(temp);
         }
 
-        for(int i = characterButtons.Count; i != 0; i--) { listContainer.Controls.Add(characterButtons[i]); }
     }
 
 
     //Function that governs all drop down lists, based on the object that calls it
-    private void activateDropDown(object sender, EventArgs e)
+    private void ActivateDropDown(object sender, EventArgs e)
     {
         if (sender == settingsButton)
         {
@@ -232,8 +249,42 @@ public partial class Base : Form
         }
     }
 
+    private static int GetTheme()
+    {
+        switch (Properties.Settings.Default.Theme)
+        {
+            case "light":
+                {
+                    return 0;
+                }
+            case "dark":
+                {
+                    return 1;
+                }
+            case "blue":
+                {
+                    return 2;
+                }
+            case "red":
+                {
+                    return 3;
+                }
+            case "yellow":
+                {
+                    return 4;
+                }
+            case null:
+                {
+                    return -1;
+                }
+        }
+
+        return -1;
+
+    }
+
     //Function to record a change to the application's theme
-    private void changeTheme(object sender, EventArgs e)
+    private void ChangeTheme(object sender, EventArgs e)
     {
         //Switch and save the theme
         switch ((sender as ToolStripMenuItem).Text)
@@ -246,7 +297,7 @@ public partial class Base : Form
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
                     Properties.Settings.Default.Theme = "light";
-                    loadTheme(0);
+                    LoadTheme(0);
                     break;
                 }
             case "Dark":
@@ -257,7 +308,7 @@ public partial class Base : Form
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
                     Properties.Settings.Default.Theme = "dark";
-                    loadTheme(1);
+                    LoadTheme(1);
                     break;
                 }
             case "Blue":
@@ -268,7 +319,7 @@ public partial class Base : Form
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = false;
                     Properties.Settings.Default.Theme = "blue";
-                    loadTheme(2);
+                    LoadTheme(2);
                     break;
                 }
             case "Red":
@@ -279,7 +330,7 @@ public partial class Base : Form
                     redToolStripMenuItem.Checked = true;
                     yellowToolStripMenuItem.Checked = false;
                     Properties.Settings.Default.Theme = "red";
-                    loadTheme(3);
+                    LoadTheme(3);
                     break;
                 }
             case "Yellow":
@@ -290,7 +341,7 @@ public partial class Base : Form
                     redToolStripMenuItem.Checked = false;
                     yellowToolStripMenuItem.Checked = true;
                     Properties.Settings.Default.Theme = "yellow";
-                    loadTheme(4);
+                    LoadTheme(4);
                     break;
                 }
         }
@@ -300,15 +351,15 @@ public partial class Base : Form
     }
 
     //This is almost certainly unnecessary, but too bad
-    private void loadTheme(int i)
+    private void LoadTheme(int i)
     {
-        setTheme(Themes[i][ThemeColor.Primary], Themes[i][ThemeColor.Secondary], Themes[i][ThemeColor.Tertiary], Themes[i][ThemeColor.Accents], Themes[i][ThemeColor.Buttons], Themes[i][ThemeColor.Text]);
+        SetTheme(Themes[i][ThemeColor.Primary], Themes[i][ThemeColor.Secondary], Themes[i][ThemeColor.Tertiary], Themes[i][ThemeColor.Accents], Themes[i][ThemeColor.Buttons], Themes[i][ThemeColor.Text]);
     }
 
     //Function to change the application's theme
     //Gonna be a mess cause I've gotta manually set every item's style
     //I'm sure there's a better way to do this, but for now? It's what works
-    private void setTheme(Color primaryColor, Color secondaryColor, Color tertiaryColor, Color accentColor, Color buttonColor, Color textColor)
+    private void SetTheme(Color primaryColor, Color secondaryColor, Color tertiaryColor, Color accentColor, Color buttonColor, Color textColor)
     {
         bottomPanel.BackColor = primaryColor;
         topPanel.BackColor = primaryColor;
@@ -332,6 +383,10 @@ public partial class Base : Form
         charaButton.BackColor = buttonColor;
         charaButton.ForeColor = textColor;
         detailPanel.BackColor = tertiaryColor;
+        characterBasicTab.BackColor = tertiaryColor;
+        characterStatsTab.BackColor = tertiaryColor;
+        characterSkillsTab.BackColor = tertiaryColor;
+        characterMiscTab.BackColor = tertiaryColor;
         changeThemeToolStripMenuItem.BackColor = buttonColor;
         changeThemeToolStripMenuItem.ForeColor = textColor;
         darkToolStripMenuItem.BackColor = buttonColor;
@@ -365,68 +420,7 @@ public partial class Base : Form
 
     }
 
-    //Override dropdown menu colors
-    private class MenuRenderer : ToolStripProfessionalRenderer
-    {
-        public MenuRenderer() : base(new MenuColors()) { }
-    }
 
-    private class MenuColors : ProfessionalColorTable
-    {
-
-        int currentTheme;
-
-        public MenuColors()
-        {
-            switch (Properties.Settings.Default.Theme)
-            {
-                case "light":
-                    {
-                        currentTheme = 0;
-                        break;
-                    }
-                case "dark":
-                    {
-                        currentTheme = 1;
-                        break;
-                    }
-                case "blue":
-                    {
-                        currentTheme = 2;
-                        break;
-                    }
-                case "red":
-                    {
-                        currentTheme = 3;
-                        break;
-                    }
-                case "yellow":
-                    {
-                        currentTheme = 4;
-                        break;
-                    }
-            }
-        }
-
-
-        public override Color MenuItemSelected
-        {
-            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
-        }
-        public override Color MenuItemSelectedGradientBegin
-        {
-            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
-        }
-        public override Color MenuItemSelectedGradientEnd
-        {
-            get { return ControlPaint.Light(Themes[currentTheme][ThemeColor.Buttons]); }
-        }
-        public override Color MenuItemBorder
-        {
-            get { return Color.Transparent; }
-        }
-
-    }
 
 }
 
